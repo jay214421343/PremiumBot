@@ -1,6 +1,6 @@
 const {RichEmbed} = require('discord.js');
 const {caseNumber} = require('../util/caseNumber.js');
-const settings = require('../settings.json');
+const settings = require('../config.js');
 exports.run = async (client, message, args) => {
   const user = message.mentions.users.first();
   const modlog = client.channels.find('name', 'mod-log');
