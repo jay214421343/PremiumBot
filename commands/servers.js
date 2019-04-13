@@ -1,9 +1,10 @@
 const { version } = require("discord.js");
+
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
   message.channel.send(`= Servers/users =
 • Users      :: ${client.users.size.toLocaleString()}
 • Servers    :: ${client.guilds.names.toLocaleString()}
-};
+)};
 
 exports.conf = {
   enabled: true,
@@ -18,4 +19,3 @@ exports.help = {
   description: "Gives some useful server statistics",
   usage: "servers"
 };
-    
