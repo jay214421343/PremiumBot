@@ -9,7 +9,7 @@ module.exports = (client, member) => {
 
   // Replace the placeholders in the welcome message with actual data
   const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);,
-  const welcomeMessage = settings.welcomeMessage.replace("{{usermention}}", member.user.mention);
+  const welcomeMessage = settings.welcomeMessage.replace("{{usermention}}", member.user);
   
 // Send the welcome message to the welcome channel
   // There's a place for more configs here.
