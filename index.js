@@ -27,6 +27,11 @@ client.logger = require("./modules/Logger");
 // the bot, like logs and elevation features.
 require("./modules/functions.js")(client);
 
+function generateXp() {
+  let min = 2;
+  let max = 20;
+
+
 // Aliases and commands are put in collections where they can be read from,
 // catalogued, listed, etc.
 client.commands = new Enmap();
@@ -70,7 +75,31 @@ const init = async () => {
   for (let i = 0; i < client.config.permLevels.length; i++) {
     const thisLevel = client.config.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
-  }
+  }bot.on("message", async message => {
+
+  var timer = setInterval(function () { 
+  if(message.author.bot) return;
+
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+    if(err) throw err;
+
+  if(message.author.bot) return;
+
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+    if(err) throw err;
+
+    let sql;
+
+    if(rows.length < 1){
+      sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXp()})`
+    } else{
+      let xp = rows[0].xp;
+      sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`;
+    }
+
+    con.query(sql);
+  });
+
 
   // Here we login the client.
   client.login(client.config.token);
