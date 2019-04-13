@@ -75,7 +75,8 @@ const init = async () => {
   for (let i = 0; i < client.config.permLevels.length; i++) {
     const thisLevel = client.config.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
-  }bot.on("message", async message => {
+  }
+  client.on("message", async message => {
 
   var timer = setInterval(function () { 
   if(message.author.bot) return;
