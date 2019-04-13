@@ -38,7 +38,6 @@ exports.run = (client, message, args) => {
   if (!muteRole) return message.reply('I cannot find a mute role').catch(console.error);
   if (reason.length < 1) return message.reply('You must supply a reason for the mute.').catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to mute them.').catch(console.error);
-  const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .setDescription(`**Action:** Un/mute\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`);
@@ -60,12 +59,4 @@ exports.run = (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['unmute'],
-  permLevel: 2
-};
-
-exports.help = {
-  name: 'mute',
-  description: 'mutes or unmutes a mentioned user',
-  usage: 'un/mute [mention] [reason]'
-};
+  
