@@ -8,9 +8,10 @@ module.exports = (client, member) => {
   if (settings.welcomeEnabled !== "true") return;
 
   // Replace the placeholders in the welcome message with actual data
-  const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);
-  const welcomeMessage = settings.welcomeMessage.replace("{{user.mention}}", member.user.mention);
-  // Send the welcome message to the welcome channel
+  const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);,
+  const welcomeMessage = settings.welcomeMessage.replace("{{usermention}}", member.user.mention);
+  
+// Send the welcome message to the welcome channel
   // There's a place for more configs here.
   member.guild.channels.find(c => c.name === settings.welcomeChannel).send(welcomeMessage).catch(console.error);
 };
