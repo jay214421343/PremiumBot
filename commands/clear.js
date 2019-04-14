@@ -9,11 +9,12 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 2
+  permLevel: 'Moderator'
 };
 
 exports.help = {
   name: 'clear'
+  category: 'Miscelaneous',
   description: 'clears X amount of messages from a given channel.',
   usage: 'clear <number>'
 };
