@@ -34,6 +34,18 @@ module.exports = async (client, message) => {
   // Get the user or member's permission level from the elevation
   const level = client.permlevel(message);
 
+    const [valid, status] = client.validateThrottle(message, level, command);
+  if (!valid) {
+    switch (status) {
+      case "blacklisted":
+        return message.react("🚫");
+      case "throttled":
+        if (message.guild) {
+          return message.react("⏱");
+        }
+        break;
+    }
+  }
   // Check whether the command, or alias, exist in the collections defined
   // in app.js.
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
