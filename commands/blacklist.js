@@ -54,7 +54,7 @@ exports.conf = {
 
 exports.help = {
   name: "blacklist",
-  category: "Miscelaneous",
+  category: "Moderation",
   description: "Managing Blacklist.",
   usage: "blacklist -add @user ; blacklist -del @user"
 };
