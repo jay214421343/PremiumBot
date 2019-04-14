@@ -18,7 +18,7 @@ exports.conf = {
 
 exports.help = {
   name: "magic8",
-  category: "
+  category: "Miscelaneous",
   description: "Magic 8-Ball, does exactly what the toy does. (Results may vary)",
-  usage: "<query:str>"
+  usage: "<query:str>",
 };
