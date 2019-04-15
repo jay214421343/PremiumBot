@@ -10,10 +10,10 @@ var game = args.join(" ").trim();
 };
 
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
+  enabled: 'true',
+  guildOnly: 'false',
   aliases: [],
-  permLevel: 5
+  permLevel: 'Bot Owner',
 };
 
 exports.help = {
